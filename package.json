@@ -1,0 +1,29 @@
+{
+  "name": "mongodb-sample",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "express-restify-mongoose": "^4.1.3",
+    "express-session": "^1.15.0",
+    "jade": "^1.11.0",
+    "method-override": "^2.3.7",
+    "moment": "^2.17.1",
+    "mongodb": "^2.2.19",
+    "mongoose": "^4.7.6",
+    "mongoose-type-email": "^1.0.2",
+    "mongoose-validator": "^1.2.5",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
+    "serve-favicon": "^2.3.2"
+  }
+}

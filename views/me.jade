@@ -1,0 +1,50 @@
+extends layout
+
+block content
+    //NAV SECTION
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='#') uRoar!!
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/') HOME
+            li
+              a(href='../#price-section') ADD NEW
+            li
+              a(href="/auth/logout")  LOGOUT
+    // END NAV SECTION
+    //CONTENT
+    .section
+      .container
+        .row.main-low-margin
+          .row
+            h1 Information
+          .row
+              h3 Firstname: 
+                span #{user.fname}
+              h3 Lastname: 
+                span #{user.lname}
+              h3 Name: 
+                span #{user.username}
+              h3 Email: 
+                span #{user.email}
+              h3 Contact Number: 
+                span #{user.number}
+              input#user(type='hidden', value='#{user.username}')
+
+      .container
+        a#delete.btn.btn-default(hrer="#") Delete
+        table#table.table.table-hover.table-mc-light-blue
+                thead
+                  tr
+                    th Check
+                    th Name
+                    th Description
+                    th Price
+                    th Category
+                    th Seller
+                    th Date Posted
+                    th Edit
+                tbody#table-body

@@ -1,0 +1,141 @@
+extends layout
+
+block content
+  body
+    // NAV SECTION
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='#') uRoar!!
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#header-section') HOME
+            li
+              a(href='#about-section') ABOUT
+            li
+              a(href='#price-section') ADD NEW
+            li
+              a(href='me') MY ACCOUNT
+            li
+              a(href="/auth/logout")  LOGOUT
+    // END NAV SECTION
+    // HEADER SECTION
+    #header-section
+      .container
+        .row.main-top-margin
+          .col-md-6.col-md-offset-3
+            .text-center
+              i.fa.fa-gears.main-icon
+              br
+        .row.main-low-margin
+          .col-md-12
+            .text-center
+              h4.head-line Hello #{user.username}
+    // END HEADER SECTION
+    // ABOUT SECTION
+    #about-section.section
+      .container
+        .row.main-low-margin
+          .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
+            h1 Our Profile
+            h5
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              | Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              | Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+              | Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+    .container
+        .row
+         h1 List of Selling Materials
+         form#search(action='/', method='post', onsubmit='getSearch()')
+                .input-group
+                  span.input-group-addon
+                    select#filter
+                      option(value='name') Name
+                      option(value='category') Category
+                      option(value='user') Seller
+                  input.form-control#searchbox(type='search', aria-describedby='basic-addon1', placeholder='Looking for something you need?')
+                  .span.input-group-btn
+                    input.btn.btn-danger#searchbtn(type="submit" value='Go!')
+         h2 Total Number of Items: 
+                    span#totalCount
+        .row
+            table#table.table.table-hover.table-mc-light-blue
+                thead
+                  tr
+                    th Name
+                    th Description
+                    th Price
+                    th Category
+                    th Seller
+                    th Date Posted
+                tbody#table-body
+    // END ABOUT SECTION
+    // PARALLAX SECTION ONE
+    section#story-freext
+      .parallax(data-velocity='-.3')
+    // END PARALLAX SECTION ONE
+    // PRICE SECTION
+    #price-section.section
+      .row
+        .col-md-12.col-sm-12
+          .col-md-3
+          .col-md-6
+            h2.major Add New 
+            br
+            br
+            if (alertMessage.length > 0)
+              .form-alert
+                h4.alertMesage
+                    | #{alertMessage}
+          .col-md-3
+      .row  
+        .col-md-3
+        .col-md-6
+          form(method="POST", action="/new")
+            p Name 
+              span.req *
+              input.form-control(type="text", placeholder="Name", name="item_name")
+              input.form-control(type="hidden", placeholder="Username", value='#{user.username}' name="username")  
+            P Image Link 
+              span (upload and copy the image link here)
+                a(href='http://postimage.io/' , target='_blank') 
+                  |  CLICK HERE
+              input.form-control(type="text", placeholder="Image Link", name="image")  
+            p Description
+              span.req *
+              input.form-control(type="text", placeholder="Description", name="description")
+            P Category
+              input.form-control(type="text", placeholder="Category", name="category")
+            P Price
+              input.form-control(type="text", placeholder="Price", name="price")  
+              input.form-control(type="hidden", placeholder="Contact Number", value='#{user.number}' name="number")  
+            button.btn.btn-primary(type="submit")
+                i.fa.fa-paper-plane
+                |  Submit
+        .col-md-3      
+    // END PRICE SECTION
+    // PARALLAX SECTION TWO
+    section#story-two
+      article
+      .parallax(data-velocity='-.1')
+      .parallax(data-velocity='-.5', data-fit='125')
+    // END PARALLAX SECTION TWO
+    // END CONTACT SECTION
+    // FOOTER SECTION
+    #footer.text-center
+      a(href='#')
+        i.fa.fa-facebook-square.fa-3x.color-facebook
+      a(href='#')
+        i.fa.fa-twitter-square.fa-3x.color-twitter
+      a(href='#')
+        i.fa.fa-google-plus-square.fa-3x.color-google-plus
+      a(href='#')
+        i.fa.fa-linkedin-square.fa-3x.color-linkedin
+      a(href='#')
+        i.fa.fa-pinterest-square.fa-3x.color-pinterest
+      br
+      br
+      |          2014 www.yourdomain.com | All Right Reserved

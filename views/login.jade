@@ -1,0 +1,85 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Sign-Up/Login Form
+    link(href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .form
+      ul.tab-group
+        li.tab.active
+          a(href='#signup') Sign Up
+        li.tab
+          a(href='#login') Log In
+      .tab-content
+        #signup
+          h1 Sign Up for Free
+          if (alertMessage.length > 0)
+                  .form-alert
+                    h4.alertMesage
+                        | #{alertMessage}
+          form(role="form", action="/auth/register", method="post")
+            .top-row
+              .field-wrap
+                label
+                  | First Name
+                  span.req *
+                input#firstname.form-controlinput(name="fname", type='text', required='', autocomplete='off')
+              .field-wrap
+                label
+                  | Last Name
+                  span.req *
+                input#lastname.form-control(name="lname", type='text', required='', autocomplete='off')
+            .field-wrap
+              label
+                | Email Adress
+                span.req *
+              input#email.form-control(name="email", type='email', required='', autocomplete='off', pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")
+            .field-wrap
+              label
+                | Contact Number
+                span.req *
+              input#number.form-control(name="number", type='text', required='', autocomplete='off')
+            .field-wrap
+              label
+                | User Name
+                span.req *
+              input#username.form-control(name="username", type='text', required='', autocomplete='off', pattern="[A-Za-z]{8,}")
+            .field-wrap
+              label
+                | Set A Password
+                span.req *
+              input#password.form-control(name="password", type='password', required='', autocomplete='off')
+            button.button.button-block(type='submit') Get Started
+        #login
+          if (user)
+            h1 Welcome Back! #{user.username}
+              form(role="form", action="/auth/logout", method="post")
+                p
+                a.btn(href='/home') Home
+                p
+                button.button.button-block Log Out
+          else
+             if (alertMessage.length > 0)
+                  .form-alert
+                    h4.alertMesage
+                        | #{alertMessage}
+            h1 Welcome Back!
+            form(role="form", action="/auth/login", method="post")
+              .field-wrap
+                label
+                  | User Name
+                  span.req *
+                input#username.form-control(type='text', required='', autocomplete='off', name="username")
+              .field-wrap
+                label
+                  | Password
+                  span.req *
+                input#password.form-control(type='password', required='', autocomplete='off', name="password")
+              button.button.button-block Log In
+      // tab-content
+    // /form
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src='/javascripts/index.js')

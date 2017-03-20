@@ -1,0 +1,63 @@
+extends layout
+
+block content
+    //NAV SECTION
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='#') uRoar!!
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/') HOME
+            li
+              a(href='../#price-section') ADD NEW
+            li
+              a(href='../me') MY ACCOUNT
+            li
+              a(href="/auth/logout")  LOGOUT
+    // END NAV SECTION
+    //CONTENT
+    .section
+      .container
+        .row.main-low-margin
+          .row
+            .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
+              h1 #{item.name}
+          .row
+            .col-md-4
+            .col-md-6  
+              img(src='#{item.image}',  style="width:380px;height:380px;")
+          .row
+            .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
+                h1 Description: 
+                  span #{item.description}
+                h1 Category: 
+                  span #{item.category}
+                h1 Price: 
+                  span #{item.price}
+                h1 Date Posted: 
+                  span #{item.date}
+                h1 Date Updated: 
+                  span #{item.updated}
+                h1 Seller: 
+                  span #{item.user}
+                h1 Contact Number:
+                  span #{item.number}
+          .row
+            .col-md-3
+            .col-md-6
+              form(method="POST", action="/newcomment")
+                p Comment
+                  input.form-control(type="text", placeholder="Comment", name="comment")
+                  input.form-control(type="hidden", placeholder="name", value="#{item.name}" , name="name")
+                button.btn.btn-primary(type="submit")
+                  i.fa.fa-paper-plane
+                  |  Submit
+          .row
+            h1 comment
+              span #{comment.comment}
+            h1 user
+              span #{comment.date}
+              
+    //END CONTENT

@@ -1,0 +1,53 @@
+extends layout
+
+block content
+    //NAV SECTION
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='#') uRoar
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/') HOME
+            li
+              a(href='../#price-section') ADD NEW
+            li
+              a(href="/auth/logout")  LOGOUT
+    // END NAV SECTION
+    //CONTENT
+    .section
+      .row
+        .col-md-12.col-sm-12
+          .col-md-3
+          .col-md-6
+            br
+            h2 Edit
+            br
+            br
+            if (alertMessage.length > 0)
+              .form-alert
+                h4.alertMesage
+                    | #{alertMessage}
+          .col-md-3
+      .row  
+        .col-md-3
+        .col-md-6
+              form(method="POST", action="/#{item._id}/edit")
+                p Name 
+                  span.req *
+                  input.form-control(type="text", placeholder="Name", value='#{item.name}', name="item_name")
+                P Image Link
+                  input.form-control(type="text", placeholder="Image Link", value='#{item.image}', name="image")  
+                p Description
+                  span.req *
+                  input.form-control(type="text", placeholder="Description", value='#{item.description}', name="description")
+                P Category
+                  input.form-control(type="text", placeholder="Category", value='#{item.category}', name="category")
+                P Price
+                  input.form-control(type="text", placeholder="Price", value='#{item.price}',  name="price")  
+                p 
+                  input(type='hidden',value='PUT',name='_method')
+                button.btn.btn-primary(type="submit")
+                    i.fa.fa-paper-plane
+                    |  Update     
