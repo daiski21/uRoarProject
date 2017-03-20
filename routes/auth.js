@@ -9,7 +9,7 @@ router.route('/register')
     User.register(new User({username: req.body.username,email: req.body.email,fname: req.body.fname,lname: req.body.lname,number: req.body.number}), req.body.password, function(err, account) {
       if(err) {
         req.flash('alertMessage', 'Invalid username or email address!');
-        return res.redirect('../#signup');
+        return res.redirect('/auth/login');
         //return res.render('register', {account: account});
         //return res.send("Somethings wrong with your Username or Email. Username must be 8-15 characters and you must use appropriate email address.");
       }
@@ -35,7 +35,7 @@ router.post('/login', function(req, res, next) {
         if(!err){
             if(!user){
                 req.flash('alertMessage', 'Invalid username or password!');
-                return res.redirect("/#login");
+                res.redirect('#');
             }
             else{
                 req.logIn(user, function(err) {
