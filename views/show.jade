@@ -18,7 +18,7 @@ block content
               a(href="/auth/logout")  LOGOUT
     // END NAV SECTION
     //CONTENT
-    .section
+    .section1
       .container
         .row.main-low-margin
           .row
@@ -31,19 +31,19 @@ block content
               img(src='#{item.image}',  style="width:380px;height:380px;" )
           .row
             .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
-                h1 Description: 
+                h3 Description: 
                   span #{item.description}
-                h1 Category: 
+                h3 Category: 
                   span #{item.category}
-                h1 Price: 
+                h3 Price: 
                   span #{item.price}
-                h1 Date Posted: 
+                h3 Date Posted: 
                   span #{item.date}
-                h1 Date Updated: 
+                h3 Date Updated: 
                   span #{item.updated}
-                h1 Seller: 
+                h3 Seller: 
                   span #{item.user}
-                h1 Contact Number:
+                h3 Contact Number:
                   span #{item.number}  
     br
     .container

@@ -35,11 +35,20 @@ h1 {
     color: black;
     font-weight: 700;
     text-align: center;
-    line-height: 10px;
+    line-height: 50px;
+}
+h3 {
+    text-align: center;
+    font-weight: 800;
+    line-height: 30px;
 }
 
 h5 {
     padding-bottom: 30px;
+    text-align: center;
+}
+span.a{
+    color: blue;
 }
 
 .text-center {
@@ -126,6 +135,9 @@ img {
 .section {
     background: url(../images/bg.jpg);
     color: black;
+}
+.section1 {
+    background: #DDA0DD;
 }
 
 /* ==========================================================================
