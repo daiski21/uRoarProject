@@ -24,6 +24,7 @@ block content
           .row
             .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
               h1 #{item.name}
+              br
           .row
             .col-md-4
             .col-md-6  
@@ -43,7 +44,9 @@ block content
                 h1 Seller: 
                   span #{item.user}
                 h1 Contact Number:
-                  span #{item.number}
+                  span #{item.number}  
+    br
+    .container
           .row
             .col-md-3
             .col-md-6
@@ -55,9 +58,12 @@ block content
                   i.fa.fa-paper-plane
                   |  Submit
           .row
-            h1 comment
-              span #{comment.comment}
-            h1 user
-              span #{comment.date}
+            table#table.table.table-hover.table-mc-light-blue
+                thead
+                  tr
+                    th Name
+                    th Comment
+                    th User
+                tbody#table-body
               
     //END CONTENT

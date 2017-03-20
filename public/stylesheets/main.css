@@ -25,15 +25,17 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 40px;
+    font-family: 'Comic Sans MS', sans-serif;
+    line-height: 20px;
 }
 
 h1 {
-    padding-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     color: black;
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
+    line-height: 10px;
 }
 
 h5 {
@@ -70,7 +72,7 @@ p {
 }
 
 .space-bottom {
-    height: 120px;
+    height: 100px;
 }
 
 .space-top {
@@ -87,6 +89,11 @@ p {
     padding-bottom: 50px;
     line-height: 65px;
     font-weight: 900;
+}
+img {
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 5px;
 }
 /* ==========================================================================
    COLOR CODES
@@ -117,7 +124,7 @@ p {
 }
 
 .section {
-    background-color: gray;
+    background: url(../images/bg.jpg);
     color: black;
 }
 
@@ -271,7 +278,12 @@ section {
     position: absolute;
     width: 100%;
 }
-
+span.req  {
+    color: red;
+}
+h4.alertMessage {
+    color: red;
+}
 section article {
     position: absolute;
     left: 80px;

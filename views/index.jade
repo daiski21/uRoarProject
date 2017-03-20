@@ -39,6 +39,7 @@ block content
         .row.main-low-margin
           .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
             h1 Our Profile
+            br
             h5
               | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               | Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
@@ -48,7 +49,8 @@ block content
               | Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
     .container
         .row
-         h1 List of Selling Materials
+          h1 List of Selling Materials
+          br  
          form#search(action='/', method='post', onsubmit='getSearch()')
                 .input-group
                   span.input-group-addon
@@ -88,7 +90,7 @@ block content
             br
             if (alertMessage.length > 0)
               .form-alert
-                h4.alertMesage
+                h4.alertMessage
                     | #{alertMessage}
           .col-md-3
       .row  
@@ -100,22 +102,23 @@ block content
               input.form-control(type="text", placeholder="Name", name="item_name")
               input.form-control(type="hidden", placeholder="Username", value='#{user.username}' name="username")  
             P Image Link 
-              span (upload and copy the image link here)
+              span (upload and copy the image direct link here)
                 a(href='http://postimage.io/' , target='_blank') 
                   |  CLICK HERE
               input.form-control(type="text", placeholder="Image Link", name="image")  
             p Description
               span.req *
               input.form-control(type="text", placeholder="Description", name="description")
-            P Category
-              input.form-control(type="text", placeholder="Category", name="category")
+            P Year Category
+              input.form-control(type="text", placeholder="1st , 2nd , 3rd , 4th or 5th", name="category")
             P Price
-              input.form-control(type="text", placeholder="Price", name="price")  
+              input.form-control(type="text", placeholder="Php12.00", name="price")  
               input.form-control(type="hidden", placeholder="Contact Number", value='#{user.number}' name="number")  
             button.btn.btn-primary(type="submit")
                 i.fa.fa-paper-plane
                 |  Submit
         .col-md-3      
+      br
     // END PRICE SECTION
     // PARALLAX SECTION TWO
     section#story-two

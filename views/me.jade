@@ -20,21 +20,21 @@ block content
       .container
         .row.main-low-margin
           .row
-            h1 Information
+            h1 My Profile
           .row
               h3 Firstname: 
                 span #{user.fname}
               h3 Lastname: 
                 span #{user.lname}
-              h3 Name: 
+              h3 Username: 
                 span #{user.username}
               h3 Email: 
                 span #{user.email}
               h3 Contact Number: 
                 span #{user.number}
+     h1 List of your selling items
               input#user(type='hidden', value='#{user.username}')
-
-      .container
+    .container
         a#delete.btn.btn-default(hrer="#") Delete
         table#table.table.table-hover.table-mc-light-blue
                 thead

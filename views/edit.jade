@@ -27,7 +27,7 @@ block content
             br
             if (alertMessage.length > 0)
               .form-alert
-                h4.alertMesage
+                h4.alertMessage
                     | #{alertMessage}
           .col-md-3
       .row  
@@ -36,12 +36,15 @@ block content
               form(method="POST", action="/#{item._id}/edit")
                 p Name 
                   span.req *
-                  input.form-control(type="text", placeholder="Name", value='#{item.name}', name="item_name")
-                P Image Link
+                  input.form-control(type="text", placeholder="Name", required="true" , value='#{item.name}', name="item_name")
+                P Image Link 
+                  span (upload and copy the image direct link here)
+                    a(href='http://postimage.io/' , target='_blank') 
+                      |  CLICK HERE
                   input.form-control(type="text", placeholder="Image Link", value='#{item.image}', name="image")  
                 p Description
                   span.req *
-                  input.form-control(type="text", placeholder="Description", value='#{item.description}', name="description")
+                  input.form-control(type="text", placeholder="Description", required="true" value='#{item.description}', name="description")
                 P Category
                   input.form-control(type="text", placeholder="Category", value='#{item.category}', name="category")
                 P Price

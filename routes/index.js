@@ -58,8 +58,34 @@ router.get('/me', function(req, res, next) {
                     html: function(){
                         res.render('me', {
                               user: req.user,
-                              title: 'All my workouts',
+                              title: 'All my items',
                               "items" : items,
+                              alertMessage: req.flash('alertMessage')
+                        });
+                    }
+                });
+              }     
+         });
+        
+    }
+    else{
+      res.redirect('/auth/login')
+    }    
+});
+
+router.get('/newcomment', function(req, res, next) {
+    if(req.user){   
+          mongoose.model('comment').find({}, function (err, comment) {
+              if (err) {
+                  return console.error(err);
+              } else {  
+                  res.format({  
+                    html: function(){
+                        res.render('show', {
+                              user: req.user,
+                              title: 'All my comment ',
+                              "items" : items,
+                              "comment" : comment,
                               alertMessage: req.flash('alertMessage')
                         });
                     }
@@ -171,23 +197,6 @@ router.route('/:id')
     mongoose.model('items').findById(req.id, function (err, item) {
       if (err) {
         console.log('GET Error: There was a problem retrieving: ' + err);
-        mongoose.model('comment').findById(req.id, function (err, item) {
-          if (err) {
-            console.log('GET Error: There was a problem retrieving: ' + err);
-          } else {
-            console.log('GET Retrieving ID: ' + comment._id); 
-              res.format({
-                html: function(){
-                    res.render('show', {
-                      user: req.user,
-                      "item" : item,
-                      "comment" : comment,
-
-                    });
-                },
-              });
-          }
-        });  
       } else {
         console.log('GET Retrieving ID: ' + item._id); 
           res.format({
@@ -200,14 +209,11 @@ router.route('/:id')
                 });
             },
           });
+          res.end();
       }
-    });
-
+    });  
   });
 
-  
-    
- 
 router.route('/:id/edit')
   .get(function(req, res) {
       mongoose.model('items').findById(req.id, function (err, item) {
@@ -248,7 +254,9 @@ router.route('/:id/edit')
 
           }, function (err, itemID, count) {
             if (err) {
-                res.send("There was a problem updating the information to the database: " + err);
+                req.flash('alertMessage', 'You must fill up the name and steps input boxes. Thank you.');
+                res.redirect('#');
+                 
             } 
             else {
                    
