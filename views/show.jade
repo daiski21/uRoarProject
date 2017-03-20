@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    
     //NAV SECTION
     .navbar.navbar-inverse.navbar-fixed-top
       .container
@@ -23,7 +24,7 @@ block content
         .row.main-low-margin
           .row
             .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1
-              h1 #{item.name}
+              h1#ikaw #{item.name}
               br
           .row
             .col-md-4
@@ -45,9 +46,11 @@ block content
                   span #{item.user}
                 h3 Contact Number:
                   span #{item.number}  
+
     br
     .container
           .row
+            input#wawa(type='hidden', value='#{item.name}')
             .col-md-3
             .col-md-6
               form(method="POST", action="/newcomment")
@@ -57,13 +60,25 @@ block content
                 button.btn.btn-primary(type="submit")
                   i.fa.fa-paper-plane
                   |  Submit
-          .row
-            table#table.table.table-hover.table-mc-light-blue
-                thead
-                  tr
-                    th Name
-                    th Comment
-                    th User
-                tbody#table-body
-              
+          br        
+          .row.bord
+            .col-md-3
+            .col-md-6
+              article#li
+            .col-md-3
+    script(type='text/javascript').     
+      var pangalan = document.getElementById("wawa").value;
+        fetch('/api/v1/comment?query={"name":"~('+ pangalan +')"}').then(function(res) {
+          res.json().then(function(comment) { 
+                console.log('comment', comment);
+                var tbody = document.getElementById('li');
+                comment.forEach(function(comment) {
+                  tbody.insertAdjacentHTML('beforeend', '<span>'
+                    + comment.user +  ' : ' + '</span><span>' 
+                    + comment.comment + '</span><p>' 
+                    + comment.date + '</p>' );
+
+            });
+          })
+        });           
     //END CONTENT

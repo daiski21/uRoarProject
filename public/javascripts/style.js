@@ -127,19 +127,5 @@ $(document).ready(function() {
 			    })
 			  });
 	}
-	if (window.location.pathname === '/:id') {
-			  fetch('/api/v1/comment?sort=name').then(function(res) {
-			    res.json().then(function(comment) {	
-			      console.log('comment', comment);
-			      var tbody = document.getElementById('table-body');
-			      comment.forEach(function(comment) {
-			        tbody.insertAdjacentHTML('beforeend', '<tr><td><a href="/' 
-			        	+ comment._id + '">' + comment.name + '</td><td>'
-			        	+ comment.comment + '</td><td>' 
-			        	+ comment.user + '</td></tr>' );
-			        
-			      });
-			    })
-			  });
-	}
+	
 });

@@ -23,6 +23,15 @@ body {
     line-height: 16px;
     font-weight: 400;
 }
+ul {
+   
+    list-style: none;
+    
+    padding: 10px 15px;
+    margin: auto;
+    
+}
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Comic Sans MS', sans-serif;

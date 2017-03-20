@@ -33,6 +33,7 @@ router.get('/', function(req, res, next) {
                               user: req.user,
                               title: 'All my workouts',
                               "items" : items,
+                              "comment" : comment,
                               alertMessage: req.flash('alertMessage')
                         });
                     }
@@ -102,19 +103,19 @@ router.get('/newcomment', function(req, res, next) {
 router.post('/newcomment', function(req, res) {
         var comment = req.body.comment;
         var user = req.user.username;
+        var name = req.body.name;
         var date = getDate;
-        var name = req.item.name;
 
 
         mongoose.model('comment').create({
             comment : comment,
             user : req.user.username,
+            name : name,
             date : date,
-            name : req.item.name,
 
-        }, function (err, items, count) {
+        }, function (err, comment, count) {
               if (err) {
-                  req.flash('alertMessage', 'You must fill up the name and steps input boxes. Thank you.');
+                  req.flash('alertMessage', 'You must fill up the input box. Thank you.');
                   res.redirect('/#');
                  
               } else {  console.log('POST creating new comment: ' + comment);
@@ -198,18 +199,25 @@ router.route('/:id')
       if (err) {
         console.log('GET Error: There was a problem retrieving: ' + err);
       } else {
-        console.log('GET Retrieving ID: ' + item._id); 
-          res.format({
-            html: function(){
-                res.render('show', {
-                  user: req.user,
-                  "item" : item,
-                  "comment" : comment,
+          mongoose.model('comment').find({}, function (err, comment) {
+            if (err) {
+              console.log('GET Error: There was a problem retrieving: ' + err);
+            } else {
+                res.format({
+                  html: function(){
+                      res.render('show', {
+                        user: req.user,
+                        title: 'All my comment ',
+                        "item" : item,
+                        "comment" : comment,
+                        alertMessage: req.flash('alertMessage')
 
+                      });
+                  },
                 });
-            },
+                res.end();
+            }
           });
-          res.end();
       }
     });  
   });

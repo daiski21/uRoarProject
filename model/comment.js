@@ -5,7 +5,7 @@ var CommentSchema = new mongoose.Schema
 	{  
 	  comment: String,
 	  user: String,
-	  Date: String,
+	  date: String,
 	  name: String,
 	},
 	{
