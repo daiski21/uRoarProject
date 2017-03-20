@@ -103,13 +103,21 @@ block content
             P Image Link 
               span (upload and copy the image direct link here)
                 a(href='http://postimage.io/' , target='_blank') 
-                  |  CLICK HERE
+                  |  CLICK HEcRE
               input.form-control(type="text", placeholder="Image Link", name="image")  
             p Description
               span.req *
               input.form-control(type="text", placeholder="Description", name="description")
             P Year Category
-              input.form-control(type="text", placeholder="1st , 2nd , 3rd , 4th or 5th", name="category")
+              fieldset
+                label.input.form-control
+                      select(name='category')
+                        option(selected='selected') - Select a category-
+                        option(value='1st') 1st
+                        option(value='2nd') 2nd
+                        option(value='3rd') 3rd
+                        option(value='4th') 4th
+                        option(value='5th') 5th
             P Price
               input.form-control(type="text", placeholder="Php12.00", name="price")  
               input.form-control(type="hidden", placeholder="Contact Number", value='#{user.number}' name="number")  

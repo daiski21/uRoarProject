@@ -3913,7 +3913,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-radius: 0;
 }
 
-.input-group-addon,
+.input-group-addon {
+  width: 10%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
 .input-group-btn {
   width: 1%;
   white-space: nowrap;
