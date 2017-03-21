@@ -109,7 +109,7 @@ $(document).ready(function() {
 	}
 	if (window.location.pathname === '/me') {
 			var user = document.getElementById("user").value;
-			  fetch('/api/v1/items?query={"user":"~('+ user +')"}').then(function(res) {
+			  fetch('/api/v1/items?query={"user":"('+ user +')"}').then(function(res) {
 			    res.json().then(function(items) {	
 			      console.log('items', items);
 			      var tbody = document.getElementById('table-body');
