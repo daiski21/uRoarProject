@@ -35,7 +35,7 @@ router.post('/login', function(req, res, next) {
         if(!err){
             if(!user){
                 req.flash('alertMessage', 'Invalid username or password!');
-                res.redirect('#');
+                res.redirect('/auth/login#login');
             }
             else{
                 req.logIn(user, function(err) {
