@@ -23,6 +23,10 @@ summary {
   display: block;
 }
 
+article#li {
+  border-style: solid;
+  border-radius: 10px;
+}
 audio,
 canvas,
 video {

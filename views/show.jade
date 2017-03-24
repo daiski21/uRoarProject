@@ -55,13 +55,13 @@ block content
             .col-md-6
               form(method="POST", action="/newcomment")
                 p Comment
-                  input.form-control(type="text", placeholder="Comment", name="comment")
+                  input.form-control(type="text", placeholder="Comment", required='', name="comment")
                   input.form-control(type="hidden", placeholder="name", value="#{item.name}" , name="name")
                 button.btn.btn-primary(type="submit")
                   i.fa.fa-paper-plane
                   |  Submit
           br        
-          .row.bord
+          .row#comment
             .col-md-3
             .col-md-6
               article#li
