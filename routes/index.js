@@ -116,16 +116,20 @@ router.post('/newcomment', function(req, res) {
         }, function (err, comment, count) {
               if (err) {
                   req.flash('alertMessage', 'You must fill up the input box. Thank you.');
-                  res.redirect('/#');
+                  //res.redirect('/#');
+                  res.send({'message': 'You must fill up the input box. Thank you'});
+                  console.log("Fill up the input box.")
                  
               } else {  console.log('POST creating new comment: ' + comment);
-                res.format({   
-                    html: function(){
-                        res.location("comment");
-                        res.redirect("/");
-                    }
-                });
-               
+                // res.format({   
+                //     html: function(){
+                //         res.location("comment");
+                //         res.redirect("/")
+                       
+                //     }
+                // });
+                res.send({'message': 'Comment added successfully!', 'user': req.user.username, 'date': date});
+                console.log("Success!");
               }
         })
 });

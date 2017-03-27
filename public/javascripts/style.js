@@ -27,6 +27,31 @@ $('#delete').on('click', function(e){
 
 });	
 
+$('#but').on('click', function(e){
+  e.preventDefault();
+  var comment = document.querySelector('[name="comment"]').value;
+  var name = document.querySelector('[name="name"]').value;
+  var tbody = document.getElementById('li');
+  var data= {
+  	"comment" : comment,
+  	"name" : name
+  }
+  console.log(data);
+	$.ajax({
+      url:'/newcomment',
+      type:'POST',
+      dataType: 'json',
+      data: data
+    }).done(function(res){
+    	alert(res.message)
+    	tbody.insertAdjacentHTML('beforeend', '<span>'+res.user+' : </span><span>'+comment+'</span><p>'+res.date+'</p><hr>' );
+    	document.getElementById('commentForm').reset();
+    }).fail(function(res){
+    	alert(res.message)
+    });
+
+});	
+
 $('#searchbtn').on('click', function(e){
   e.preventDefault();
   var inputbox = document.getElementById("searchbox").value;

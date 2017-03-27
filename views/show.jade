@@ -53,15 +53,15 @@ block content
             input#wawa(type='hidden', value='#{item.name}')
             .col-md-3
             .col-md-6
-              form(method="POST", action="/newcomment")
+              form#commentForm(method="POST", action="/newcomment")
                 p Comment
-                  input.form-control(type="text", placeholder="Comment", required='', name="comment")
+                  input.form-control(type="text", placeholder="Comment", name="comment")
                   input.form-control(type="hidden", placeholder="name", value="#{item.name}" , name="name")
-                button.btn.btn-primary(type="submit")
+                button#but.btn.btn-primary(type="submit")
                   i.fa.fa-paper-plane
                   |  Submit
           br        
-          .row#comment
+          .row.bord
             .col-md-3
             .col-md-6
               article#li
@@ -76,7 +76,7 @@ block content
                   tbody.insertAdjacentHTML('beforeend', '<span>'
                     + comment.user +  ' : ' + '</span><span>' 
                     + comment.comment + '</span><p>' 
-                    + comment.date + '</p>' );
+                    + comment.date + '</p><hr>' );
 
             });
           })
