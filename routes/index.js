@@ -278,7 +278,6 @@ router.route('/:id/edit')
 
   .delete(function (req, res, count){
       mongoose.model('items').findById(req.id, function (err, item) {
-          
               item.remove(function (err, item ) {
                   if (err) {
                       return console.error(err);
