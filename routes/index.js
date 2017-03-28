@@ -121,13 +121,7 @@ router.post('/newcomment', function(req, res) {
                   console.log("Fill up the input box.")
                  
               } else {  console.log('POST creating new comment: ' + comment);
-                // res.format({   
-                //     html: function(){
-                //         res.location("comment");
-                //         res.redirect("/")
-                       
-                //     }
-                // });
+             
                 res.send({'message': 'Comment added successfully!', 'user': req.user.username, 'date': date});
                 console.log("Success!");
               }
