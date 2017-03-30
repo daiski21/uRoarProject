@@ -50,13 +50,13 @@ block content
     br
     .container
           .row
-            input#wawa(type='hidden', value='#{item.name}')
+            input#wawa(type='hidden', value='#{item._id}')
             .col-md-3
             .col-md-6
               form#commentForm(method="POST", action="/newcomment")
                 p Comment
                   input.form-control(type="text", placeholder="Comment", name="comment")
-                  input.form-control(type="hidden", placeholder="name", value="#{item.name}" , name="name")
+                  input.form-control(type="hidden", placeholder="name", value="#{item._id}" , name="name")
                 button#but.btn.btn-primary(type="submit")
                   i.fa.fa-paper-plane
                   |  Submit

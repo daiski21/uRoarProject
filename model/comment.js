@@ -7,6 +7,7 @@ var CommentSchema = new mongoose.Schema
 	  user: String,
 	  date: String,
 	  name: String,
+	 
 	},
 	{
 		collection: 'comment'
